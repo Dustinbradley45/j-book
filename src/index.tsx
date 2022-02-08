@@ -6,8 +6,8 @@ import { unpkgPathPlugin } from './plugins/unpkg-path-plugin';
 
 const App = () => {
   const ref = useRef<any>();
+  const iFrame = useRef<any>();
   const [input, setInput] = useState('');
-  const [code, setCode] = useState('');
 
   const startService = async () => {
     ref.current = await esbuild.startService({
@@ -25,6 +25,9 @@ const App = () => {
       return;
     }
 
+    // resets body of iFrame to ensure if root was removed it gets replaced
+    iFrame.current.srcdoc = html;
+
     const result = await ref.current.build({
       entryPoints: ['index.js'],
       bundle: true,
@@ -35,9 +38,34 @@ const App = () => {
         global: 'window'
       }
     })
-    setCode(result.outputFiles[0].text);
-
+    iFrame.current.contentWindow.postMessage(result.outputFiles[0].text, '*');
   };
+
+  const html = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Child Code</title>
+    </head>
+      <body>
+        <div id='root'></div>
+        <script>
+          window.addEventListener('message', (event) => {
+            try {
+              eval(event.data);
+            } catch(error) {
+              const root = document.querySelector('#root');
+              root.innerHTML = '<div style="color: red;"><h4>Runtime Error </h4>' + error + '</div>';
+              console.error(error);
+            }
+          }, false);
+        </script>
+      </body>
+    </html>
+  `;
 
   return (
     <div>
@@ -48,9 +76,10 @@ const App = () => {
       <div>
         <button onClick={onClick}>Submit</button>
       </div>
-      <pre>{code}</pre>
+      <iframe sandbox="allow-scripts" title="Preview" srcDoc={html} ref={iFrame} />
     </div>
   );
 };
+
 
 ReactDOM.render(<App />, document.querySelector('#root'));
