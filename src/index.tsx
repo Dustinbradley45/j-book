@@ -3,6 +3,9 @@ import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { fetchPlugin } from './plugins/fetch-plugin';
 import { unpkgPathPlugin } from './plugins/unpkg-path-plugin';
+import 'bulmaswatch/superhero/bulmaswatch.min.css';
+
+import CodeEditor from './components/codeEditor/codeEditor';
 
 const App = () => {
   const ref = useRef<any>();
@@ -69,12 +72,12 @@ const App = () => {
 
   return (
     <div>
-      <textarea
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      ></textarea>
+      <CodeEditor
+        initialValue={input}
+        onChange={(value: string) => { setInput(value) }}
+      />
       <div>
-        <button onClick={onClick}>Submit</button>
+        <button onClick={onClick}>Run Code</button>
       </div>
       <iframe sandbox="allow-scripts" title="Preview" srcDoc={html} ref={iFrame} />
     </div>
