@@ -63,7 +63,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
                 </ThemeButton>
             </ButtonWrapper>
             <MonacoEditor
-                height="500px"
+                height="100%"
                 theme={darkTheme ? 'dark' : 'light'}
                 language="javascript"
                 options={{

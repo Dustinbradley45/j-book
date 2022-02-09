@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { IFrameWrapper, PreviewFrame } from './Preview.styles';
 
 interface PreviewPropTypes {
-    code: string,
+  code: string,
 }
 
 const html = `
@@ -26,24 +26,25 @@ const html = `
   `;
 
 const Preview: React.FC<PreviewPropTypes> = ({ code }) => {
-    const iframe = useRef<any>();
+  const iframe = useRef<any>();
 
-    useEffect(() => {
-        iframe.current.srcDoc = html;
-        iframe.current.contentWindow.postMessage(code, '*');
+  useEffect(() => {
+    iframe.current.srcDoc = html;
+    setTimeout(() => {
+      iframe.current.contentWindow.postMessage(code, '*');
+    }, 50)
+  }, [code]);
 
-    }, [code]);
-
-    return (
-        <IFrameWrapper>
-            <PreviewFrame
-                sandbox="allow-scripts"
-                title="Preview"
-                srcDoc={html}
-                ref={iframe}
-            />
-        </IFrameWrapper>
-    )
+  return (
+    <IFrameWrapper>
+      <PreviewFrame
+        sandbox="allow-scripts"
+        title="Preview"
+        srcDoc={html}
+        ref={iframe}
+      />
+    </IFrameWrapper>
+  )
 };
 
 export default Preview;

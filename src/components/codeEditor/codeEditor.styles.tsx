@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const EditorWrapper = styled.div`
     position: relative;
     height: 100%;
+    width: calc(100% - 10px);
 
     & .button-format {
         position: absolute;
