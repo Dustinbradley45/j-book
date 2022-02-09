@@ -1,5 +1,5 @@
 import MonacoEditor, { EditorDidMount } from '@monaco-editor/react';
-import monaco from 'monaco-editor';
+// import monaco from 'monaco-editor';
 import { useState, useRef } from 'react';
 import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
@@ -13,14 +13,12 @@ import { BsFillSunFill } from 'react-icons/bs';
 import { MdOutlineNightlightRound } from 'react-icons/md';
 import 'bulmaswatch/superhero/bulmaswatch.min.css';
 
-import { ThemeButton, EditorWrapper, ButtonWrapper, FormatButton } from './codeEditor.styles';
+import { ThemeButton, EditorWrapper, ButtonWrapper, FormatButton } from './CodeEditor.styles';
 
 interface CodeEditorProps {
     initialValue: string;
     onChange(value: string): void;
 };
-
-
 
 const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
     const [darkTheme, setDarkTheme] = useState<boolean>(true);
