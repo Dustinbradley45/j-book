@@ -1,11 +1,18 @@
 import MDEditor from '@uiw/react-md-editor';
 import { useState, useEffect, useRef } from 'react';
 import { TextEditorWrapper, CardContent } from './TextEditor.styles';
+import { Cell } from '../../store';
+import { useActions } from '../../hooks/useActions';
 
-const TextEditor: React.FC = () => {
+interface TextEditorProps {
+    cell: Cell
+}
+
+const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
     const [editing, setEditing] = useState<boolean>(false);
-    const [value, setValue] = useState<string>("# Start Typing!");
     const mdRef = useRef<HTMLDivElement | null>(null);
+
+    const { updateCell } = useActions();
 
     useEffect(() => {
         const listener = (event: MouseEvent) => {
@@ -26,7 +33,7 @@ const TextEditor: React.FC = () => {
     if (editing) {
         return (
             <TextEditorWrapper ref={mdRef}>
-                <MDEditor value={value} onChange={(v) => setValue(v || '')} />
+                <MDEditor value={cell.content} onChange={(v) => updateCell(cell.id, v || '')} />
             </TextEditorWrapper>
         )
     };
@@ -35,7 +42,7 @@ const TextEditor: React.FC = () => {
         // card and card-content are coming from bulma design system
         <TextEditorWrapper className="card" onClick={() => setEditing(true)}>
             <CardContent className="card-content">
-                <MDEditor.Markdown source={value} />
+                <MDEditor.Markdown source={cell.content || 'Click to edit!'} />
             </CardContent>
         </TextEditorWrapper>
     );
