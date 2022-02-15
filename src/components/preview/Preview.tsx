@@ -45,8 +45,6 @@ const Preview: React.FC<PreviewPropTypes> = ({ code, bundlingStatus }) => {
     }, 50)
   }, [code]);
 
-  console.log(bundlingStatus, "here");
-
   return (
     <IFrameWrapper>
       <PreviewFrame
