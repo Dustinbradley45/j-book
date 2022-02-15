@@ -3,21 +3,22 @@ import { useActions } from '../../hooks/useActions';
 import { AiOutlinePlus } from 'react-icons/ai';
 
 interface AddCellProps {
-    nextCellId: string | null;
+    previousCellId: string | null;
+    forceVisible?: boolean;
 }
 
-const AddCell: React.FC<AddCellProps> = ({ nextCellId }) => {
-    const { insertCellBefore } = useActions();
+const AddCell: React.FC<AddCellProps> = ({ previousCellId, forceVisible }): JSX.Element => {
+    const { insertCellAfter } = useActions();
     return (
-        <AddCellWrapper>
+        <AddCellWrapper forceVisible={forceVisible}>
             <AddButtonWrapper>
-                <AddCellButton className="button is-rounded is-primary is-small" onClick={() => insertCellBefore(nextCellId, 'code')}>
+                <AddCellButton className="button is-rounded is-primary is-small" onClick={() => insertCellAfter(previousCellId, 'code')}>
                     <IconSpacer>
                         <AiOutlinePlus size="14px" color="#FFF" />
                     </IconSpacer>
                     Code
                 </AddCellButton>
-                <AddCellButton className="button is-rounded is-primary is-small" onClick={() => insertCellBefore(nextCellId, 'text')}>
+                <AddCellButton className="button is-rounded is-primary is-small" onClick={() => insertCellAfter(previousCellId, 'text')}>
                     <IconSpacer>
                         <AiOutlinePlus size="14px" color="#FFF" />
                     </IconSpacer>
