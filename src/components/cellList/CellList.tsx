@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-
+import { CellListWrapper } from './CellList.styles';
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import CellListItem from "../cellListItem/CellListItem";
 import AddCell from '../addCell/AddCell';
@@ -16,10 +16,10 @@ const CellList: React.FC = (): JSX.Element => {
     ))
 
     return (
-        <>
+        <CellListWrapper>
             <AddCell forceVisible={cells.length === 0} previousCellId={null} />
             {renderedCells}
-        </>
+        </CellListWrapper>
     )
 }
 
