@@ -40,7 +40,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     return (
         <CodeCellWrapper>
             <Resizable direction='y'>
-                <InnerCell data-id="innercell">
+                <InnerCell>
                     <Resizable direction='x'>
                         <CodeEditor
                             data-id="code editor"
@@ -50,7 +50,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
                     </Resizable>
                     {
                         !bundle || bundle.loading
-                            ? <LoadingOverlay data-id="cats">
+                            ? <LoadingOverlay>
                                 <StyledSpinner color='#df691a' size={100} />
                             </LoadingOverlay>
                             : <Preview
