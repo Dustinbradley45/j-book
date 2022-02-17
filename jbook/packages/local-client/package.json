@@ -1,6 +1,6 @@
 {
   "name": "@code-book/local-client",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -72,5 +72,5 @@
       "last 1 safari version"
     ]
   },
-  "gitHead": "8e2a8d6dfda16095b4e3afcbfa8ec4c7bc86cfe0"
+  "gitHead": "2695add8783146198021922b059d10fec6dc5572"
 }
