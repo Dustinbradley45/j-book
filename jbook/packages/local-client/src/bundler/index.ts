@@ -28,13 +28,11 @@ const bundle = async (rawCode: string) => {
             code: result.outputFiles[0].text,
             err: ''
         }
-    } catch (err) {
+    } catch (err: any) {
         return {
             code: '',
-            // @ts-ignore
             err: err.message,
         }
-
     }
 };
 

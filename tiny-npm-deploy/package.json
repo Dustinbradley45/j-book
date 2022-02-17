@@ -1,5 +1,5 @@
 {
-  "name": "npm-deploy-jbook",
+  "name": "small-npm-deploy-code-book",
   "version": "1.0.0",
   "description": "Deploy script for JBook CLI",
   "main": "index.js",

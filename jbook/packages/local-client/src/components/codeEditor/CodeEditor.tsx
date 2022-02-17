@@ -3,11 +3,6 @@ import MonacoEditor, { EditorDidMount } from '@monaco-editor/react';
 import { useState, useRef } from 'react';
 import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
-//@ts-ignore 
-//@TODO: get syntax highlighting for JSX
-// import MonacoJSXHighlighter from 'monaco-jsx-highlighter';
-// import traverse from '@babel/traverse';
-// import { parse } from '@babel/parser';
 
 import { BsFillSunFill } from 'react-icons/bs';
 import { MdOutlineNightlightRound } from 'react-icons/md';

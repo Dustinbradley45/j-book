@@ -1,12 +1,18 @@
 {
-  "name": "local-api",
+  "name": "@code-book/local-api",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc --watch --preserveWatchOutput"
+    "start": "tsc --watch --preserveWatchOutput",
+    "prepublishOnly": "tsc"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +25,6 @@
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "http-proxy-middleware": "^2.0.3",
-    "local-client": "^0.1.0"
+    "@code-book/local-client": "^0.1.0"
   }
 }

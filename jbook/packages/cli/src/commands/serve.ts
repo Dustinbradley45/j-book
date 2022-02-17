@@ -1,6 +1,5 @@
 import { Command } from 'commander';
-// @ts-ignore - note: not sure why this isn't seeing the function.
-import { serve } from 'local-api';
+import { serve } from '@code-book/local-api';
 import path from 'path';
 
 const isProduction = process.env.NODE_ENV === 'production';
