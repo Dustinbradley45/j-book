@@ -1,1 +1,3 @@
 .DS_Store
+tiny-npm-deploy/dist
+tiny-npm-deploy/node
