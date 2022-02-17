@@ -1,6 +1,6 @@
 {
   "name": "@code-book/local-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,10 +22,10 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "@code-book/local-client": "^1.0.1",
+    "@code-book/local-client": "^1.0.2",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "http-proxy-middleware": "^2.0.3"
   },
-  "gitHead": "eb8b383aa960eeb05fffe6d326736338a963cf75"
+  "gitHead": "9d17b9b36d55668d1e89133ec5b2a35d9c8386c0"
 }
