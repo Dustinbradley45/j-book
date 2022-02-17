@@ -1,6 +1,6 @@
 {
   "name": "js-code-book",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "files": [
     "dist"
@@ -16,14 +16,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@code-book/local-client": "^1.0.2"
+    "@code-book/local-client": "^1.0.3"
   },
   "devDependencies": {
-    "@code-book/local-api": "^1.0.2",
+    "@code-book/local-api": "^1.0.3",
     "@types/node": "^17.0.18",
     "commander": "^9.0.0",
     "esbuild": "0.8.26",
     "typescript": "^4.5.5"
   },
-  "gitHead": "9d17b9b36d55668d1e89133ec5b2a35d9c8386c0"
+  "gitHead": "8e2a8d6dfda16095b4e3afcbfa8ec4c7bc86cfe0"
 }
